@@ -1,0 +1,87 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Copperplate Gothic Light';
+    margin: 0;
+
+}
+body{
+    background: rgb(236, 230, 230);
+    font-size: 16px;
+    color: #fff;
+
+}
+section {
+    padding: 25px 0;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+header{
+    height: 50px;
+    display: flex;
+}
+.logo{
+    width: 10%;
+    background-color: #1d6683;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu{
+    width: 90%;
+    background-color: #1d6683;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.navItem {
+    display: inline-block;
+    list-style: none;
+    text-transform: uppercase;
+    margin: 0 25px;
+   
+}
+.navItem > a {
+    padding: 20px;
+    width: 150px;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+.product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.product-item{
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    
+}
+.product-item > p{
+    color: black;
+}
+.product-price{
+    font-weight: bold;
+}
+
+.product-btn{
+    background-color: #1d6683;
+    color: #fff;
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: 10px;
+    width: 150px;
+    display: flex;
+    justify-content: space-around;
+   
+}
+.product-btn:hover{
+    border: 1px solid #FA7252;
+    background-color: aquamarine;
+}
