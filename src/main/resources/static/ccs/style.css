@@ -1,7 +1,7 @@
 *{
     box-sizing: border-box;
     font-family: 'Copperplate Gothic Light';
-    margin: 0;
+    margin: 0%;
 
 }
 body{
@@ -63,6 +63,10 @@ header{
     margin: 20px;
     
 }
+.product-item img {
+    max-width: 30px;
+    max-height: 30px;
+}
 .product-item > p{
     color: black;
 }
@@ -84,4 +88,66 @@ header{
 .product-btn:hover{
     border: 1px solid #FA7252;
     background-color: aquamarine;
+}
+
+.main-content{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 10px;
+    background-color: gr;
+    margin: auto;
+    height: 500px;
+    color: #000;
+    flex-wrap: wrap;
+}
+.add-btn{
+    background-color: #1d6683;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 1px solid;
+    width: 100px;
+}
+.add-btn:hover{
+    border: 1px solid #FA7252;
+    background-color: aquamarine;
+}
+.mbtn{
+    background-color: #1d6683;
+    color: #fff;
+    border-radius: 10px;
+    border: 1px solid;
+    width: 20px;
+}
+
+.tabele{width:1000px;font-family:sans-serif; margin: 500;}
+.tabele table{width:100%;border-collapse:collapse;}
+.tabele caption{font-size:1.4em;padding:20px;}
+.tabele thead tr{background: #000;color:#fff;}
+.tabele tbody tr{background: #eee;}
+.tabele tr:nth-child(even){background: #def;}
+.tabele tbody tr:hover{background: #fc0;}
+.tabele td{padding:8px 4px;text-align: center;}
+
+.summary{
+    margin-top: 30px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    width: 1000px;
+}
+.summary-img{
+    max-width: 250px;
+    max-height: 250px;
+}
+form {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label{
+    width: 100%;
 }

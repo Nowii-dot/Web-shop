@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../../../../.git"
+		},
+		{
+			"path": "../../../../.idea"
+		},
+		{
+			"path": "../../../../.mvn"
+		},
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../target"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "src"
+	}
+}
