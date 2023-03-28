@@ -6,17 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/ccs/style.css">
 </head>
 <body>
-    <header class="bar">
-        <nav class="logo"><a>featuremovieshop</a></nav>
-        <nav class="menu">
-            <ul>
-                <li class="navItem"><a href="#">catalog</a></li>
-                <li class="navItem"><a href="#">category</a></li>
-                <li class="navItem"><a href="#">information</a></li>
-                <li class="navItem"><a href="#">info</a></li>
-                <li class="navItem"><a href="#">news</a></li>
-            </ul>
-        </nav>
+<header th:replace="topbar/header :: ShopHeader">
     </header>
 
     <div class="main-content">
@@ -46,7 +36,7 @@
             </table>
         </div>
         <div class="summary">
-            <p><span>Do zapłaty: </span><span th:text="${@cart.sum}">10</span>zł</p>
+            <p><span>Do zapłaty: </span><span th:text="">10</span>zł</p>
         
         </div>
         <div class="summary">

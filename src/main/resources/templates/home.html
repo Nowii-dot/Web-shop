@@ -7,17 +7,8 @@
     <script src="https://kit.fontawesome.com/c2e4aa9ea1.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="bar">
-        <nav class="logo"><a>featuremovieshop</a></nav>
-        <nav class="menu">
-            <ul>
-                <li class="navItem"><a href="#">catalog</a></li>
-                <li class="navItem"><a href="#">category</a></li>
-                <li class="navItem"><a href="#">information</a></li>
-                <li class="navItem"><a href="#">info</a></li>
-                <li class="navItem"><a href="#">news</a></li>
-            </ul>
-        </nav>
+    <header th:replace="/topbar/header :: ShopHeader">
+
     </header>
     <main class="container">
 
@@ -26,7 +17,7 @@
                 <img class="summary-img" th:src="@{${item.imgUrl}}" alt="friday" title="Awsome movie"/>
                 <p class="product-name" th:text="${item.name}"></p>
                 <p class="product-price" th:text="${item.price}"><zl></zl></p>
-                <button class="product-btn"><a>Kup Teraz</a><i class="fa-solid fa-cart-shopping"></i></button>
+                <button class="product-btn" th:href="@{'/add/' + ${item.idmovies2}}"><a>Kup Teraz</a><i class="fa-solid fa-cart-shopping"></i></button>
             </div>
         </section>
     </main>

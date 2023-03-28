@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>featuremovieshop</title>
+  <link rel="stylesheet" type="text/css" href="/ccs/style.css">
+  <script src="https://kit.fontawesome.com/c2e4aa9ea1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="bar" th:fragment="ShopHeader">
+  <nav class="logo"><a>featuremovieshop</a></nav>
+  <nav class="menu">
+    <ul>
+      <li class="navItem"><a href="">catalog</a></li>
+      <li class="navItem"><a href="#">category</a></li>
+      <li class="navItem"><a href="#">information</a></li>
+      <li class="navItem"><a th:href="admin">Admin</a></li>
+      <li class="navItem"><a href="#">
+        <span>Koszyk</span>
+        <span th:if="${session.cart !=null}" th:text="${session.cart.size()}"></span>
+        <span th:unless="${session.cart !=null}">0</span>
+        <span></span>
+      </a></li>
+    </ul>
+  </nav>
+</header>
+</body>
+</html>
