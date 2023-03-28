@@ -4,19 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.air.nowak.webshop.Model.Item;
-import pl.air.nowak.webshop.Repository.movieRepository;
-
-import java.util.List;
+import pl.air.nowak.webshop.Repository.MovieRepository;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 
     @Autowired
-    movieRepository MovieRepository;
+    MovieRepository movieRepository;
 
     @GetMapping
     private String adminPage(){
@@ -25,7 +22,7 @@ public class AdminController {
 
     @PostMapping
     public String add(Item item){
-       MovieRepository.save(item);
+       movieRepository.save(item);
        return("redirect:/");
     }
 

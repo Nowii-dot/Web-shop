@@ -2,14 +2,13 @@ package pl.air.nowak.webshop.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import pl.air.nowak.webshop.Model.Item;
+import pl.air.nowak.webshop.Repository.MovieRepository;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,15 +19,15 @@ public class HomeController {
     protected static List<Item> items = new ArrayList<>();
 
     @Autowired
-    movieController movieController;
+    MovieRepository movieRepository;
 
     public Item getById(@PathVariable("id") int id) {
-        return movieController.getById(id);
+        return movieRepository.getById(id);
     }
 
 
     public List<Item> getAll() {
-        return movieController.getAll();
+        return movieRepository.getAll();
     }
 
 /*
