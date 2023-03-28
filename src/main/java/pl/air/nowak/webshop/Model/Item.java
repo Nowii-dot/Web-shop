@@ -1,16 +1,21 @@
 package pl.air.nowak.webshop.Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.*;
 
 import java.math.BigDecimal;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter @Setter
+@Entity
+@Table(name = "movies2")
+@NoArgsConstructor @Getter @Setter
 public class Item {
+
+    @Id
+    @GeneratedValue
+    private int idmovies2;
 
     private  String name;
     private BigDecimal price;

@@ -54,9 +54,11 @@ header{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 1000px;
+    margin: auto;
 }
 .product-item{
-    max-width: 400px;
+    max-width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,8 +66,8 @@ header{
     
 }
 .product-item img {
-    max-width: 30px;
-    max-height: 30px;
+    max-width: 250px;
+    max-height: 250px;
 }
 .product-item > p{
     color: black;
