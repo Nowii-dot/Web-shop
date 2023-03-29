@@ -37,14 +37,13 @@ public class HomeController {
     }
 
     @GetMapping("/add/{idmovies2}")
-    public String addItemToCart(@PathVariable("idmovies2") int idmovies2, Model model, HttpSession session){
+    public String addItemToCart(@PathVariable("idmovies2") int id, Model model, HttpSession session){
         @SuppressWarnings("unchecked")
         List<Item> cart = (List<Item>) session.getAttribute("cart");
         if(cart == null){
             cart = new ArrayList<>();
         }
-        Item oItem = movieRepository.getById(idmovies2);
-            cart.add(oItem);
+            cart.add(movieRepository.getById(id));
             session.setAttribute("cart", cart);
 
         model.addAttribute("items", getAll());

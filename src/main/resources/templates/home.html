@@ -17,7 +17,7 @@
                 <img class="summary-img" th:src="@{${item.imgUrl}}" alt="friday" title="Awsome movie"/>
                 <p class="product-name" th:text="${item.name}"></p>
                 <p class="product-price" th:text="${item.price}"><zl></zl></p>
-                <button class="product-btn" th:href="@{'/add/' + ${item.idmovies2}}"><a>Kup Teraz</a><i class="fa-solid fa-cart-shopping"></i></button>
+                <span class="product-btn"><a th:href="@{'/add/' + ${item.idmovies2}}">Kup Teraz</a><i class="fa-solid fa-cart-shopping"></i></span>
             </div>
         </section>
     </main>

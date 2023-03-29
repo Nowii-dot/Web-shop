@@ -16,7 +16,7 @@
       <li class="navItem"><a href="#">information</a></li>
       <li class="navItem"><a th:href="admin">Admin</a></li>
       <li class="navItem"><a href="#">
-        <span>Koszyk</span>
+        <span><i class="fa-solid fa-cart-shopping"></i></span>
         <span th:if="${session.cart !=null}" th:text="${session.cart.size()}"></span>
         <span th:unless="${session.cart !=null}">0</span>
         <span></span>
