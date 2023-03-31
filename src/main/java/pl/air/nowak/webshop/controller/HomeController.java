@@ -7,10 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
+import pl.air.nowak.webshop.Cart;
 import pl.air.nowak.webshop.Model.Item;
 import pl.air.nowak.webshop.Repository.MovieRepository;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -19,13 +21,25 @@ public class HomeController {
 
     @Autowired
     MovieRepository movieRepository;
+    private final Cart cart;
 
-    public Item getById(@PathVariable("id") int id) {
-        return movieRepository.getById(id);
+    public HomeController(MovieRepository movieRepository, Cart cart) {
+        this.movieRepository = movieRepository;
+        this.cart = cart;
+    }
+
+    @GetMapping("/test")
+    public int test(){
+        return 1+1;
     }
 
 
-    private List<Item> getAll() {
+    public Item getById(@PathVariable("idmovies2") int idmovies2) {
+        return movieRepository.getById(idmovies2);
+    }
+
+
+    private @ResponseBody List<Item> getAll() {
         return movieRepository.getAll();
     }
 
@@ -37,14 +51,13 @@ public class HomeController {
     }
 
     @GetMapping("/add/{idmovies2}")
-    public String addItemToCart(@PathVariable("idmovies2") int id, Model model, HttpSession session){
-        @SuppressWarnings("unchecked")
-        List<Item> cart = (List<Item>) session.getAttribute("cart");
-        if(cart == null){
-            cart = new ArrayList<>();
-        }
-            cart.add(movieRepository.getById(id));
-            session.setAttribute("cart", cart);
+    public String addItemToCart(@PathVariable("idmovies2") int id, Model model){
+
+
+
+
+                cart.addItem(movieRepository.getById(id));
+                cart.getSum();
 
         model.addAttribute("items", getAll());
         return "home";

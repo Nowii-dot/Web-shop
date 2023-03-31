@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>featuremovieshop</title>
+    <link rel="stylesheet" type="text/css" href="/ccs/style.css">
+</head>
+<header class="bar">
+  <nav class="logo"><a>featuremovieshop</a></nav>
+  <nav class="menu">
+      <ul>
+          <li class="navItem"><a href="#">catalog</a></li>
+          <li class="navItem"><a href="#">category</a></li>
+          <li class="navItem"><a href="#">information</a></li>
+          <li class="navItem"><a href="#">info</a></li>
+          <li class="navItem"><a href="#">news</a></li>
+      </ul>
+  </nav>
+</header>
+<body>
+  <div class="main-content">
+
+    <div class="summary">
+      <h1>Dodaj Nowy Film</h1>
+
+      <form th:action="@{/admin}" method="post">
+        <label>Nazwa</label>
+        <input type="text" name="name" required>
+        <label >Cena</label>
+        <input type="number" min="1" step="1" name="price" required>
+        <label>urlImg</label>
+        <input type="text" name="imgUrl">
+        <button class="add-btn" type="submit">Dodaj</button>
+      </form>
+
+    </div>
+  </div>
+
+
+</body>
+</html>

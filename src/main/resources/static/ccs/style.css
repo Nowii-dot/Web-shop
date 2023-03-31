@@ -115,6 +115,18 @@ header{
     border: 1px solid #FA7252;
     background-color: aquamarine;
 }
+.add-btn-delete{
+    background-color: red;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 1px solid;
+    width: 100px;
+}
+.add-btn-delete:hover{
+    border: 1px solid #FA7252;
+    background-color: grey;
+}
 .mbtn{
     background-color: #1d6683;
     color: #fff;
