@@ -31,4 +31,9 @@ public class MovieRepository {
         );
 
     }
+
+    public int delete(int idmovies2){
+        return jdbcTemplate.update("DELETE FROM movies2 WHERE idmovies2=?", idmovies2);
+    }
+
 }

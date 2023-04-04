@@ -28,11 +28,6 @@ public class HomeController {
         this.cart = cart;
     }
 
-    @GetMapping("/test")
-    public int test(){
-        return 1+1;
-    }
-
 
     public Item getById(@PathVariable("idmovies2") int idmovies2) {
         return movieRepository.getById(idmovies2);

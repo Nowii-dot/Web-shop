@@ -21,14 +21,14 @@
                     <th>Suma</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody th:each="item : ${items}">
                 <tr>
                     <td>1</td>
-                    <td><p>Wakanda</p><img class="summary-img" src="/main/resources/static/img/product_thumb.png"></td>
+                    <td><p th:text="${item.name}"></p><img class="summary-img" th:src="@{${item.imgUrl}}"></td>
                     <td style="display: flex; justify-content: center; margin-top: 70%;">
-                        <a class="mbtn" th:href="@{'/order/decrease/' + ${cartItem.item.id}}">-</a>
-                        <p th:text="${cartItem.counter}">2</p>
-                        <a class="mbtn" th:href="@{'/order/increase/' + ${cartItem.item.id}}">+</a>
+                        <a class="mbtn" >-</a>
+                        <p >2</p>
+                        <a class="mbtn" >+</a>
                     </td>
                     <td>80</td>
                 </tr>
@@ -36,12 +36,12 @@
             </table>
         </div>
         <div class="summary">
-            <p><span>Do zapłaty: </span><span th:text="">10</span>zł</p>
+            <p><span>Do zapłaty: </span><span>10</span>zł</p>
         
         </div>
         <div class="summary">
 
-            <form th:action="@{/order/saveorder}" method="post">
+            <form  method="post">
                 <label>Imię</label>
                 <input type="text" name="firstName" required>
                 <label>Nazwisko</label>
