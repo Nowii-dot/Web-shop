@@ -3,9 +3,7 @@ package pl.air.nowak.webshop.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import pl.air.nowak.webshop.Model.Item;
 import pl.air.nowak.webshop.Repository.MovieRepository;
 
@@ -25,6 +23,11 @@ public class OrderController {
 
     private @ResponseBody List<Item> getAll() {
         return movieRepository.getAll();
+    }
+
+    @DeleteMapping("/{idmovies2}")
+    public int delete(@PathVariable("idmovies2") int id){
+        return movieRepository.delete(id);
     }
 
 }

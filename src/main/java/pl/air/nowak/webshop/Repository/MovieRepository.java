@@ -16,7 +16,7 @@ public class MovieRepository {
     JdbcTemplate jdbcTemplate;
 
     public Item getById(int id){
-        return jdbcTemplate.queryForObject("SELECT  idmovies2,name, price, imgUrl FROM movies2 WHERE idmovies2 = ?", BeanPropertyRowMapper.newInstance(Item.class), id);
+        return jdbcTemplate.queryForObject("SELECT  idmovies2, name, price, imgUrl FROM movies2 WHERE idmovies2 = ?", BeanPropertyRowMapper.newInstance(Item.class), id);
     }
 
 
@@ -32,8 +32,8 @@ public class MovieRepository {
 
     }
 
-    public int delete(int idmovies2){
-        return jdbcTemplate.update("DELETE FROM movies2 WHERE idmovies2=?", idmovies2);
+    public int delete(int  idmovies2){
+        return jdbcTemplate.update("Delete FROM movies2 where idmovies2=?", idmovies2);
     }
 
 }

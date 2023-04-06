@@ -18,6 +18,7 @@
                 <p class="product-name" th:text="${item.name}"></p>
                 <p class="product-price" th:text="${item.price}"><zl></zl></p>
                 <span class="product-btn"><a th:href="@{'/add/' + ${item.idmovies2}}">Kup Teraz</a><i class="fa-solid fa-cart-shopping"></i></span>
+                <span class="add-btn-delete"><a  th:href="@{'/delete/' + ${item.idmovies2}}">Delete</a><i class="fa-solid fa-cart-shopping"></i></span>
             </div>
         </section>
     </main>

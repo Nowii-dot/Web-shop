@@ -8,9 +8,9 @@ import lombok.*;
 
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "movies2")
-@NoArgsConstructor @Getter @Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Item {
 
     @Id

@@ -5,9 +5,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import pl.air.nowak.webshop.Cart;
 import pl.air.nowak.webshop.Model.Item;
 import pl.air.nowak.webshop.Repository.MovieRepository;
@@ -45,16 +43,40 @@ public class HomeController {
         return "home";
     }
 
+/*    @DeleteMapping("/delete/{idmovie2}")
+    public int delete(@PathVariable("idmovies2") int id){
+        System.out.println(id);
+        return movieRepository.delete(id);
+
+    }
+    */
+
+    @RequestMapping(value = "/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(@PathVariable int id){
+        Optional<Item> item = Optional.ofNullable(movieRepository.getById(id));
+        if(item.isPresent())
+        {
+            movieRepository.delete(id);
+            return("redirect:/");
+        }
+
+        return("redirect:/");
+    }
+
+
+
+
     @GetMapping("/add/{idmovies2}")
-    public String addItemToCart(@PathVariable("idmovies2") int id, Model model){
+    public String addItemToCart(@PathVariable int idmovies2, Model model){
+            Optional<Item> oitem = Optional.ofNullable(movieRepository.getById(idmovies2));
+            if(oitem.isPresent())
+            {
+                Item item = oitem.get();
+                cart.addItem(item);
 
 
-
-
-                cart.addItem(movieRepository.getById(id));
-                cart.getSum();
-
-        model.addAttribute("items", getAll());
+            }
+            model.addAttribute("items", movieRepository.getAll());
         return "home";
     }
 }
