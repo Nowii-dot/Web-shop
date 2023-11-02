@@ -19,8 +19,6 @@ public class MovieRepository {
         return jdbcTemplate.queryForObject("SELECT  idmovies2, name, price, imgUrl FROM movies2 WHERE idmovies2 = ?", BeanPropertyRowMapper.newInstance(Item.class), id);
     }
 
-
-
     public List<Item> getAll(){
         return jdbcTemplate.query("SELECT * FROM movies2", BeanPropertyRowMapper.newInstance(Item.class));
     }
@@ -29,11 +27,13 @@ public class MovieRepository {
          return jdbcTemplate.update("INSERT INTO movies2(name, price, imgUrl) VALUES (? , ? , ?)",
                 item.getName(), item.getPrice(), item.getImgUrl()
         );
-
     }
-
     public int delete(int  idmovies2){
         return jdbcTemplate.update("Delete FROM movies2 where idmovies2=?", idmovies2);
     }
+    public int update(Item item){
+        return  jdbcTemplate.update("UPDATE movies2 set title=?, rating=? where id=?;", item.getName(), item.getPrice(), item.getImgUrl());
+    }
+
 
 }

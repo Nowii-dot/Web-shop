@@ -124,9 +124,25 @@ header{
     width: 100px;
 }
 .add-btn-delete:hover{
-    border: 1px solid #FA7252;
-    background-color: grey;
+    border: 1px solid red;
+    background-color: black;
 }
+.add-btn-edit{
+    background-color: dodgerblue;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 1px solid;
+    width: 100px;
+}
+.add-btn-edit:hover{
+    border: 1px solid dodgerblue;
+    background-color: black;
+}
+
+
+
+
 .mbtn{
     background-color: #1d6683;
     color: #fff;

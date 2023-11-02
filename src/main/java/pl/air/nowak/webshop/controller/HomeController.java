@@ -43,13 +43,6 @@ public class HomeController {
         return "home";
     }
 
-/*    @DeleteMapping("/delete/{idmovie2}")
-    public int delete(@PathVariable("idmovies2") int id){
-        System.out.println(id);
-        return movieRepository.delete(id);
-
-    }
-    */
 
     @RequestMapping(value = "/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(@PathVariable int id){
@@ -62,9 +55,6 @@ public class HomeController {
 
         return("redirect:/");
     }
-
-
-
 
     @GetMapping("/add/{idmovies2}")
     public String addItemToCart(@PathVariable int idmovies2, Model model){
