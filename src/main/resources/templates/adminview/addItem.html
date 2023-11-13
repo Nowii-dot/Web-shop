@@ -10,20 +10,21 @@
 <body>
   <div class="main-content">
 
-    <div class="summary">
-      <h1>Dodaj Nowy Film</h1>
+      <div class="summary">
+          <h1>Dodaj Nowy Film</h1>
 
-      <form th:action="@{/admin}" method="post">
-        <label>Nazwa</label>
-        <input type="text" name="name" required>
-        <label >Cena</label>
-        <input type="number" min="1" step="1" name="price" required>
-        <label>urlImg</label>
-        <input type="text" name="imgUrl">
-        <button class="add-btn" type="submit">Dodaj</button>
-      </form>
+          <form th:action="@{/admin/save}" method="post">
+              <label>Nazwa</label>
+              <input type="text" name="name" required>
+              <label >Cena</label>
+              <input type="number" min="1" step="1" name="price" required>
+              <label>urlImg</label>
+              <input type="text" name="imgUrl">
+              <button class="add-btn-delete"  type="submit">Dodaj</button>
+          </form>
 
-    </div>
+
+      </div>
   </div>
 
 

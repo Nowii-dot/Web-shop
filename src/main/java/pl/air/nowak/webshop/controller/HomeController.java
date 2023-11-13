@@ -69,4 +69,5 @@ public class HomeController {
             model.addAttribute("items", movieRepository.getAll());
         return "home";
     }
+
 }

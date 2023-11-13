@@ -17,43 +17,65 @@ public class AdminController {
     @Autowired
     MovieRepository movieRepository;
 
-    @GetMapping
-    private String adminPage(Model model){
+    @GetMapping("")
+    private String adminPage(Model model) {
         model.addAttribute("items", getAll());
         return "adminview/DeleteItem";
     }
+
 
     private @ResponseBody List<Item> getAll() {
         return movieRepository.getAll();
     }
 
-    @PostMapping
-    public String add(Item item){
-       movieRepository.save(item);
-       return("redirect:/");
+    //Section add item
+    @GetMapping("/add")
+    private String addPage(Model model) {
+
+        model.addAttribute("item", movieRepository.getAll());
+        return "adminview/addItem";
     }
 
-    @RequestMapping(value = "/delete/{idmovie2}", method = {RequestMethod.DELETE, RequestMethod.GET})
-    public String delete(@PathVariable int id){
+
+    @PostMapping("/save")
+    public String add(Item item) {
+        movieRepository.save(item);
+        return ("redirect:/");
+    }
+
+    // Section delete item
+    @RequestMapping(value = "/delete/{idmovie2}", method = {RequestMethod.DELETE})
+    public String delete(@PathVariable int id) {
         Optional<Item> oitem = Optional.ofNullable(movieRepository.getById(id));
-        if(oitem.isPresent())
-        {
+        if (oitem.isPresent()) {
             movieRepository.delete(id);
         }
-        return("redirect:/");
+        return ("redirect:/");
     }
-//    @PatchMapping(value = "/edit/{idmovie2}", method  = {RequestMethod.DELETE, RequestMethod.GET})
-//    public int updateOne(@PathVariable("id")int id, @RequestBody Item updateMovie){
-//        Item item = movieRepository.getById(id);
-//        if(item!=null)
-//        {
-//            if(updateMovie.getName() !=null) item.setName(updateMovie.getName());
-//            if(updateMovie.getPrice() !=null)  item.setPrice(updateMovie.getPrice());
-//
-//            movieRepository.update(item);
-//            return 1;
-//        }else {
-//            return -1;
-//        }
-//    }
+
+
+
+    @GetMapping("/edit/{idmovies2}")
+    private String EditItem(@PathVariable("idmovies2") int idmovies2, Model model) {
+        Item item = movieRepository.getById(idmovies2);
+        model.addAttribute("items", item);
+            return "adminview/EditItem";
+    }
+
+
+    @PostMapping("/edit/{idmovies2}")
+    public String update(@PathVariable("idmovies2") int idmovies2, Item item){
+        // get item from database by id
+        Item updatedItem = movieRepository.getById(idmovies2);
+        updatedItem.setName(item.getName());
+        updatedItem.setPrice(item.getPrice());
+        updatedItem.setImgUrl(item.getImgUrl());
+
+        // save updated item object
+        movieRepository.update(updatedItem);
+
+            return ("redirect:/");
+    }
+
+
 }

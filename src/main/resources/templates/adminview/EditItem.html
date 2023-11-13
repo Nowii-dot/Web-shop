@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>featuremovieshop</title>
+  <link rel="stylesheet" type="text/css" href="/ccs/style.css">
+  <link rel="stylesheet" href="../../static/ccs/style.css">
+</head>
+<header class="bar">
+  <nav class="logo"><a>featuremovieshop</a></nav>
+  <nav class="menu">
+    <ul>
+      <li class="navItem"><a href="#">catalog</a></li>
+      <li class="navItem"><a href="#">category</a></li>
+      <li class="navItem"><a href="#">information</a></li>
+      <li class="navItem"><a href="#">info</a></li>
+      <li class="navItem"><a href="#">news</a></li>
+    </ul>
+  </nav>
+</header>
+<body>
+
+  <div class="summary">
+    <tr>
+      <td th:text="${items.idmovies2}"></td>
+    </tr>
+    <h1>Edytuj film</h1>
+
+    <form th:action="@{/admin/edit/{id} (id=${items.idmovies2})}" th:object="${items}" method="POST">
+      <input type="hidden" name="id" th:value="items.idmovies2"/>
+      <label>Nazwa</label>
+      <input type="text" name="name" th:value="${items.name}"  required>
+      <label >Cena</label>
+      <input type="number" min="1" step="1" name="price" th:value="${items.price}" required>
+      <label>urlImg</label>
+      <input type="text" name="imgUrl" th:value="${items.imgUrl}">
+      <button class="add-btn-delete"   type="submit">Wyślij</button>
+    </form>
+
+  </div>
+</div>
+
+
+</body>
+</html>
