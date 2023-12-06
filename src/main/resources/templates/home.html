@@ -7,15 +7,24 @@
     <script src="https://kit.fontawesome.com/c2e4aa9ea1.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header class="bar">
-    <nav class="logo"><a>featuremovieshop</a></nav>
+<header class="bar" th:fragment="home">
+    <nav class="logo"><a href="http://localhost:8080">featuremovieshop</a></nav>
     <nav class="menu">
         <ul>
-            <li class="navItem"><a href="#">catalog</a></li>
+            <li class="navItem"><a href="#">TOP 10</a></li>
             <li class="navItem"><a href="#">category</a></li>
             <li class="navItem"><a href="#">information</a></li>
             <li class="navItem"><a href="http://localhost:8080/admin">Admin</a></li>
             <li class="navItem"><a href="#">Log In</a></li>
+            <li class="navItem"><a th:href="@{/order/cart}">
+                <span><i class="fa-solid fa-cart-shopping"></i></span>
+                <span>(</span>
+                <span th:text="${@cart.counter}"></span>
+                <span>)</span>
+                <span th:text="${@cart.sum}"></span>
+                <span>€</span>
+                <span></span>
+            </a></li>
         </ul>
     </nav>
 </header>
@@ -25,8 +34,13 @@
         <div class="product-item" th:each="item : ${items}">
             <img class="summary-img" th:src="@{${item.imgUrl}}" alt="friday" title="Awsome movie"/>
             <p class="product-name" th:text="${item.name}"></p>
-            <p class="product-price" th:text="${item.price}"><zl></zl></p>
-            <button class="product-btn"><a>Kup Teraz</a><i class="fa-solid fa-cart-shopping"></i></button>
+            <div class="product-text">
+                <span>Now</span>
+                <span>€</span>
+                <span class="product-price" th:text="${item.price}"> </span>
+            </div>
+
+            <a class="product-btn" th:href="@{'/shop-all/' + ${item.idmovies2}}" >Add to Cart<i class="fa-solid fa-cart-shopping"></i></a>
         </div>
     </section>
 </main>

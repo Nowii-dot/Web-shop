@@ -13,9 +13,19 @@ body{
 section {
     padding: 25px 0;
 }
+.container{
+    width: 100%;
+}
 a {
     text-decoration: none;
     color: #fff;
+}
+
+.text-center{
+    color: #000;
+}
+.form-label {
+    color: #000;
 }
 header{
     height: 50px;
@@ -57,6 +67,9 @@ header{
     width: 1000px;
     margin: auto;
 }
+.product-text{
+    color: black;
+}
 .product-item{
     max-width: 250px;
     display: flex;
@@ -72,6 +85,9 @@ header{
 .product-item > p{
     color: black;
 }
+.product-item > span{
+    color: black;
+}
 .product-price{
     font-weight: bold;
 }
@@ -82,14 +98,14 @@ header{
     padding: 10px 20px;
     border: 1px solid;
     border-radius: 10px;
-    width: 150px;
+    width: 180px;
     display: flex;
     justify-content: space-around;
    
 }
 .product-btn:hover{
-    border: 1px solid #FA7252;
-    background-color: aquamarine;
+    border: 1px solid #123f51;
+    background-color: #123f51;
 }
 
 .main-content{
@@ -151,7 +167,7 @@ header{
     width: 20px;
 }
 
-.tabele{width:1000px;font-family:sans-serif; margin: 500;}
+.tabele{width:1000px;font-family:sans-serif; margin: 50px;}
 .tabele table{width:100%;border-collapse:collapse;}
 .tabele caption{font-size:1.4em;padding:20px;}
 .tabele thead tr{background: #000;color:#fff;}
@@ -168,8 +184,8 @@ header{
     width: 1000px;
 }
 .summary-img{
-    max-width: 250px;
-    max-height: 250px;
+    max-width: 150px;
+    max-height: 150px;
 }
 form {
    

@@ -3,42 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <title>featuremovieshop</title>
+ 
+  <link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/ccs/style.css">
   <link rel="stylesheet" href="../../static/ccs/style.css">
 </head>
-<header class="bar">
-  <nav class="logo"><a>featuremovieshop</a></nav>
-  <nav class="menu">
-    <ul>
-      <li class="navItem"><a href="#">catalog</a></li>
-      <li class="navItem"><a href="#">category</a></li>
-      <li class="navItem"><a href="#">information</a></li>
-      <li class="navItem"><a href="#">info</a></li>
-      <li class="navItem"><a href="#">news</a></li>
-    </ul>
-  </nav>
+<header th:replace="/topbar/headerAdmin :: ShopHeaderAdmin">
 </header>
 <body>
 
-  <div class="summary">
-    <tr>
-      <td th:text="${items.idmovies2}"></td>
-    </tr>
-    <h1>Edytuj film</h1>
+<div class="container my-5 p-5" style="border:1px solid black;">
+  <h4 class="text-center">Edit Movie Here</h4>
+  <form class="col-md-4 offset-md-4" th:action="@{/admin/edit/{id} (id=${items.idmovies2})}" th:object="${items}" method="POST">
+    
+    <input type="hidden" name="id" th:value="items.idmovies2"/>
+    <div class="mb-3">
+      <label  class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" th:value="${items.name}"  required>
+    </div>
+    
+    <div class="mb-3">
+      <label  class="form-label">Price</label>
+        <input type="number" class="form-control" min="1" step="1" name="price" th:value="${items.price}" required>
+    </div>
 
-    <form th:action="@{/admin/edit/{id} (id=${items.idmovies2})}" th:object="${items}" method="POST">
-      <input type="hidden" name="id" th:value="items.idmovies2"/>
-      <label>Nazwa</label>
-      <input type="text" name="name" th:value="${items.name}"  required>
-      <label >Cena</label>
-      <input type="number" min="1" step="1" name="price" th:value="${items.price}" required>
-      <label>urlImg</label>
-      <input type="text" name="imgUrl" th:value="${items.imgUrl}">
-      <button class="add-btn-delete"   type="submit">Wyślij</button>
-    </form>
-
-  </div>
+    <div class="mb-3">
+      <label  class="form-label">Image Url</label>
+        <input type="text" class="form-control" name="imgUrl" th:value="${items.imgUrl}">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
 </div>
+</div>
+
 
 
 </body>

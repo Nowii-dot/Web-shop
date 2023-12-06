@@ -16,7 +16,7 @@ public class Item {
 
     @Id
     @GeneratedValue
-    private int idmovies2;
+    private Integer idmovies2;
 
     private  String name;
     private BigDecimal price;

@@ -35,10 +35,11 @@ public class CartItem {
     public void realPrice(){
         price = item.getPrice().multiply(new BigDecimal(counter));
     }
-
-
     public boolean ZeroItem(){
         return counter == 0;
     }
 
+    public boolean idEquals(Item item){
+        return this.item.getIdmovies2().equals(item.getIdmovies2());
+    }
 }
