@@ -24,7 +24,7 @@ public class MovieRepository {
     }
 
     public int save(Item item) {
-         return jdbcTemplate.update("INSERT INTO movies2(name, price, imgUrl) VALUES (? , ? , ?)",
+         return jdbcTemplate.update("INSERT INTO movies2(name, price, imgUrl,rating) VALUES (? , ? , ?,0)",
                 item.getName(), item.getPrice(), item.getImgUrl()
         );
     }

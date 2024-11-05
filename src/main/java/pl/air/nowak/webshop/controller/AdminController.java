@@ -20,7 +20,7 @@ public class AdminController {
     @GetMapping("")
     private String adminPage(Model model) {
         model.addAttribute("items", getAll());
-        return "adminview/DeleteItem";
+        return "adminview/addItem";
     }
 
 
@@ -35,6 +35,14 @@ public class AdminController {
         model.addAttribute("item", movieRepository.getAll());
         return "adminview/addItem";
     }
+
+//    @GetMapping("/delete/{idmovies2}")
+//    private String deletePage(@PathVariable("idmovies2"))
+//    {
+//
+//        return "adminview/DeleteItem";
+//    }
+
 
 
     @PostMapping("/save")

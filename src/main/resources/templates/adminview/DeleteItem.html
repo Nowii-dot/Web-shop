@@ -10,29 +10,22 @@
 
 </header>
 <body>
-  <div class="main-content">
-      <div class="tabele">
-          <table>
-              <caption>Current Movies Database</caption>
-              <thead>
-              <tr>
-                  <th>Lp</th>
-                  <th>Movie Name</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
-              </tr>
-              </thead>
-              <tbody th:each="item, iterStat : ${items}">
-              <tr id="numberedList">
-                  <td  th:text="${iterStat.count}"></td>
-                  <td><p th:text="${item.name}"></p><img class="summary-img" th:src="@{${item.imgUrl}}"></td>
-                  <td><a class="add-btn-edit" th:href="@{'/admin/edit/' + ${item.idmovies2}}">Edit</a></td>
-                  <td><a class="add-btn-delete" th:href="@{'admin/delete/' + ${item.idmovies2}}">Delete</a></td>
-              </tr>
-              </tbody>
-          </table>
-      </div>
-  </div>
+<body>
+<div class="main-content">
+
+    <div class="summary">
+        <h1>Delete video by id</h1>
+
+        <form th:action="@{/admin/save}" method="post">
+            <label>enter video id</label>
+            <input type="text" name="idmovies2" required>
+            <br>
+            <button class="add-btn-delete"  type="submit">Delete</button>
+        </form>
+
+
+    </div>
+</div>
   <script src="/src/main/resources/static/JavaScript/EditItem.js"></script>
 
 
