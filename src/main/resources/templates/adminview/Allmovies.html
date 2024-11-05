@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>featuremovieshop</title>
+  <link rel="stylesheet" type="text/css" href="/ccs/style.css">
+  <link rel="stylesheet" href="../../static/ccs/style.css">
+</head>
+  <header th:replace="/topbar/headerAdmin :: ShopHeaderAdmin">
+</header>
+<body>
+<div class="main-content">
+  <div class="tabele">
+    <table>
+      <caption>Baza aktualnych Filmów</caption>
+      <thead>
+      <tr>
+        <th>Lp</th>
+        <th>Nazwa Filmu</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      </thead>
+      <tbody th:each="item, stat : ${items}">
+      <tr>
+        <td th:text="${stat.index + 1}"></td> <!-- Dodano numerowanie -->
+        <td>
+          <p th:text="${item.name}"></p>
+          <img class="summary-img" th:src="@{${item.imgUrl}}" alt="Movie poster">
+        </td>
+        <td><a class="add-btn-edit" th:href="@{'/admin/edit/' + ${item.idmovies2}}">Edit</a></td>
+        <td><a class="add-btn-delete" th:href="@{'/admin/delete/' + ${item.idmovies2}}">Delete</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

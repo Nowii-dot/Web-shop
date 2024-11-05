@@ -20,7 +20,7 @@ public class AdminController {
     @GetMapping("")
     private String adminPage(Model model) {
         model.addAttribute("items", getAll());
-        return "adminview/DeleteItem";
+        return "adminview/Allmovies";
     }
 
 
