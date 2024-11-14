@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="/ccs/style.css">
   <link rel="stylesheet" href="../../static/ccs/style.css">
 </head>
-  <header th:replace="/topbar/headerAdmin :: ShopHeaderAdmin">
+  <header th:replace="~{/topbar/headerAdmin :: ShopHeaderAdmin}">
 </header>
 <body>
 <div class="main-content">
@@ -29,11 +29,14 @@
           <img class="summary-img" th:src="@{${item.imgUrl}}" alt="Movie poster">
         </td>
         <td><a class="add-btn-edit" th:href="@{'/admin/edit/' + ${item.idmovies2}}">Edit</a></td>
-        <td><a class="add-btn-delete" th:href="@{'/admin/delete/' + ${item.idmovies2}}">Delete</a></td>
+        <td><form th:action="@{'/admin/delete/' + ${item.idmovies2}}" method="post" style="display:inline;">
+          <input type="hidden" name="_method" value="delete"/>
+          <button type="submit" class="add-btn-delete">Delete</button>
+        </form></td>
       </tr>
       </tbody>
     </table>
   </div>
-
+</div>
 </body>
 </html>
