@@ -8,13 +8,13 @@
   <script src="https://kit.fontawesome.com/c2e4aa9ea1.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header class="bar" th:fragment="ShopHeader">
+<header class="bar" th:fragment="ShopHeaderAdmin">
   <nav class="logo"><a href="http://localhost:8080">featuremovieshop logo</a></nav>
   <nav class="menu">
     <ul>
       <li class="navItem"><a href="">catalog</a></li>
-      <li class="navItem"><a href="#">category</a></li>
       <li class="navItem"><a href="http://localhost:8080/admin/add">Add</a></li>
+      <li class="navItem"><a href="http://localhost:8080/admin/edit">Edit</a></li>
       <li class="navItem"><a href=http://localhost:8080/admin>Admin</a></li>
       <li class="navItem"><a href="#">
         <span th:href="@{/order/summary}"><i class="fa-solid fa-cart-shopping"></i></span>

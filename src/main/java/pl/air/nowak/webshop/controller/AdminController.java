@@ -20,7 +20,7 @@ public class AdminController {
     @GetMapping("")
     private String adminPage(Model model) {
         model.addAttribute("items", getAll());
-        return "adminview/DeleteItem";
+        return "adminview/Allmovies";
     }
 
 
@@ -45,12 +45,12 @@ public class AdminController {
 
     // Section delete item
     @RequestMapping(value = "/delete/{idmovie2}", method = {RequestMethod.DELETE})
-    public String delete(@PathVariable int id) {
-        Optional<Item> oitem = Optional.ofNullable(movieRepository.getById(id));
+    public String delete(@PathVariable("idmovie2") int idmovie2) {
+        Optional<Item> oitem = Optional.ofNullable(movieRepository.getById(idmovie2));
         if (oitem.isPresent()) {
-            movieRepository.delete(id);
+            movieRepository.delete(idmovie2);
         }
-        return ("redirect:/");
+        return "redirect:/";
     }
 
 

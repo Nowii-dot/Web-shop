@@ -9,13 +9,13 @@ import pl.air.nowak.webshop.Model.Item;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
-@Getter
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Getter
 public class Cart {
-
     private List<CartItem> cartItems = new ArrayList<>();
     private int counter = 0;
     private BigDecimal sum = BigDecimal.ZERO;
@@ -24,29 +24,28 @@ public class Cart {
         boolean notFound = true;
 
         for (CartItem ci: cartItems) {
-            if(ci.getItem().equals(item.getIdmovies2())){
+            if(ci.getItem().getIdmovies2().equals(item.getIdmovies2())){
                 notFound = false;
                 ci.increaseCounter();
                 SumOfPrice();
                 break;
             }
         }
-
         if(notFound) {
             cartItems.add(new CartItem(item));
+            SumOfPrice();
         }
     }
-
     public void removeItem(Item item) {
-        boolean notFound = true;
 
         for (CartItem ci : cartItems) {
-            if (ci.getItem().equals(item.getIdmovies2())) {
+            if (ci.getItem().getIdmovies2().equals(item.getIdmovies2())) {
                 ci.decreaseCounter();
-                SumOfPrice();
-                if (ci.ZeroItem()) {
+                if(ci.ZeroItem())
+                {
                     cartItems.remove(ci);
                 }
+                SumOfPrice();
                 break;
             }
         }

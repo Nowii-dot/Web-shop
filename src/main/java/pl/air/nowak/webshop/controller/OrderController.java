@@ -4,30 +4,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.air.nowak.webshop.Cart;
 import pl.air.nowak.webshop.Model.Item;
 import pl.air.nowak.webshop.Repository.MovieRepository;
+import pl.air.nowak.webshop.service.Cartservice;
 
-import java.util.List;
+import java.util.Optional;
 
 @Controller
+@RequestMapping("/order")
 public class OrderController {
 
+    private  final Cartservice cartservice;
+    private final Cart cart;
     @Autowired
-    MovieRepository movieRepository;
+    public OrderController(Cartservice cartservice, Cart cart) {
+        this.cartservice = cartservice;
+        this.cart = cart;
+    }
 
-    @GetMapping("/summary")
+    @GetMapping("/cart")
     public String showSummary(Model model) {
-        model.addAttribute("items", getAll());
-        return "summary";
+        model.addAttribute("Itemss", cart.getCartItems());
+        return "cartView";
     }
-
-    private @ResponseBody List<Item> getAll() {
-        return movieRepository.getAll();
+    @GetMapping("/increase/{idmovies2}")
+    public String addItemToCart(@PathVariable("idmovies2") int idmovies2, Model model){
+        cartservice.addItemToCart(idmovies2);
+        return "cartView";
     }
-
-    @DeleteMapping("/{idmovies2}")
-    public int delete(@PathVariable("idmovies2") int id){
-        return movieRepository.delete(id);
+    @GetMapping("/decrease/{idmovies2}")
+    public String deleteItemToCart(@PathVariable("idmovies2") int idmovies2, Model model) {
+        cartservice.deleteItemToCart(idmovies2);
+        return "cartView";
     }
 
 }

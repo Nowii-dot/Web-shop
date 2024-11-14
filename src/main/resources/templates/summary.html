@@ -26,9 +26,9 @@
                     <td th:text="${item.idmovies2}"></td>
                     <td><p th:text="${item.name}"></p><img class="summary-img" th:src="@{${item.imgUrl}}"></td>
                     <td style="display: flex; justify-content: center; margin-top: 70%;">
-                        <a class="mbtn" >-</a>
+                        <a class="mbtn" th:href="@{'/order/increase/' + ${item.idmovies2}}" >+</a>
                         <p >2</p>
-                        <a class="mbtn" >+</a>
+                        <a class="mbtn" th:href="@{'/order/decrease/' + ${item.idmovies2}}">-</a>
                     </td>
                     <td>80</td>
                     <td><a class="add-btn-delete" th:href="@{'/delete/' + ${item.idmovies2}}">Usun</a></td>
@@ -37,7 +37,7 @@
             </table>
         </div>
         <div class="summary">
-            <p><span>Do zapłaty: </span><span>10</span>zł</p>
+            <p><span>Do zapłaty: </span><span th:text="${@cart.sum}">€</span>zł</p>
         
         </div>
         <div class="summary">
