@@ -28,6 +28,7 @@ public class HomeController {
         this.cart = cart;
     }
 
+
     @GetMapping("/")
     public String home(Model model){
         model.addAttribute("items", cartservice.getAllItems());

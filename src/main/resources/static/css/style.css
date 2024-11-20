@@ -64,7 +64,7 @@ header{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 1000px;
+    width: 1600px;
     margin: auto;
 }
 .product-text{
@@ -79,8 +79,6 @@ header{
     
 }
 .product-item img {
-    max-width: 250px;
-    max-height: 250px;
 }
 .product-item > p{
     color: black;
