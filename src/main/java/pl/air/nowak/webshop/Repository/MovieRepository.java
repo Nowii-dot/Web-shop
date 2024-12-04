@@ -35,6 +35,9 @@ public class MovieRepository {
         return  jdbcTemplate.update("UPDATE movies2 set name=?, price=?, imgUrl=? where idmovies2=?",
                 item.getName(), item.getPrice(), item.getImgUrl(), item.getIdmovies2());
     }
+    public List<Item> getTopTenMovies(){
+        return jdbcTemplate.query("SELECT * FROM movies2 ORDER BY rating DESC LIMIT 10", BeanPropertyRowMapper.newInstance(Item.class));
+    }
 
 
 

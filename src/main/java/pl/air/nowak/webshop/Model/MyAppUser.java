@@ -1,49 +1,70 @@
-package pl.air.nowak.webshop.Model;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
-public class MyAppUser {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    private String username;
-    private String email;
-    private String password;
-}
+//package pl.air.nowak.webshop.Model;
+//
+//import jakarta.persistence.*;
+//import lombok.Data;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
+//
+//import java.util.HashSet;
+//import java.util.Set;
+//
+//@Entity
+//@Data
+//public class MyAppUser implements UserDetails {
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private Long id;
+//
+//    private String username;
+//    private String email;
+//    private String password;
+//
+//    @ManyToMany(fetch = FetchType.EAGER) // Ładowanie ról użytkownika
+//    @JoinTable(
+//            name = "user_roles", // Nazwa tabeli pośredniczącej
+//            joinColumns = @JoinColumn(name = "user_id"), // Klucz obcy do tabeli użytkowników
+//            inverseJoinColumns = @JoinColumn(name = "role_id") // Klucz obcy do tabeli ról
+//    )
+//    private Set<Role> roles = new HashSet<>();
+//
+//    @Override
+//    public Set<? extends GrantedAuthority> getAuthorities() {
+//        // Zwracamy role jako autorytety
+//        Set<GrantedAuthority> authorities = new HashSet<>();
+//        for (Role role : roles) {
+//            authorities.add(() -> "ROLE_" + role.getName()); // Przedrostek "ROLE_" jest wymagany przez Spring Security
+//        }
+//        return authorities;
+//    }
+//
+//    @Override
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    @Override
+//    public String getUsername() {
+//        return username;
+//    }
+//
+//    @Override
+//    public boolean isAccountNonExpired() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isAccountNonLocked() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isCredentialsNonExpired() {
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean isEnabled() {
+//        return true;
+//    }
+//}

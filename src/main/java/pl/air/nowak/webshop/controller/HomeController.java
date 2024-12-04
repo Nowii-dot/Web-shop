@@ -1,3 +1,4 @@
+
 package pl.air.nowak.webshop.controller;
 
 
@@ -21,6 +22,7 @@ public class HomeController {
 
 
     private  final Cartservice cartservice;
+
     private final Cart cart;
     @Autowired
     public HomeController(Cartservice cartservice, Cart cart) {
@@ -28,18 +30,22 @@ public class HomeController {
         this.cart = cart;
     }
 
-
     @GetMapping("/")
     public String home(Model model){
         model.addAttribute("items", cartservice.getAllItems());
         return "home";
     }
+    @GetMapping("/ranking/movies")
+    public String ranking(Model model){
+        model.addAttribute("items", cartservice.getTopTenItems() );
+        return "rankingmovies";
+        }
 
     @GetMapping("/shop-all/{idmovies2}")
     public String addItemToCart(@PathVariable("idmovies2") int idmovies2, Model model){
-            cartservice.addItemToCart(idmovies2);
-            model.addAttribute("items", cartservice.getAllItems());
-            return "home";
+        cartservice.addItemToCart(idmovies2);
+        model.addAttribute("items", cartservice.getAllItems());
+        return "home";
     }
 
 }

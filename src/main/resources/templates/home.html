@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>featuremovieshop</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <script src="https://kit.fontawesome.com/c2e4aa9ea1.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -11,11 +12,9 @@
     <nav class="logo"><a href="http://localhost:8080">featuremovieshop</a></nav>
     <nav class="menu">
         <ul>
-            <li class="navItem"><a href="#">TOP 10</a></li>
-            <li class="navItem"><a href="#">category</a></li>
-            <li class="navItem"><a href="#">information</a></li>
-            <li class="navItem"><a href="http://localhost:8080/admin">Admin</a></li>
-            <li class="navItem"><a href="http://localhost:8080/login">Log In</a></li>
+            <li class="navItem"><a href=http://localhost:8080/ranking/movies"">TOP 20</a></li>
+            <li class="navItem"><a href="#">NEW</a></li>
+            <li class="navItem"><a href="#">Log In</a></li>
             <li class="navItem"><a th:href="@{/order/cart}">
                 <span><i class="fa-solid fa-cart-shopping"></i></span>
                 <span>(</span>

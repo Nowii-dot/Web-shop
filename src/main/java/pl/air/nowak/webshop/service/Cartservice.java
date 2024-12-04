@@ -25,6 +25,7 @@ public class Cartservice {
     public List<Item> getAllItems() {
         return movieRepository.getAll();
     }
+    public List<Item> getTopTenItems() {return movieRepository.getTopTenMovies();}
 
     public void addItemToCart(int idmovies2){
 
