@@ -2,20 +2,17 @@
 package pl.air.nowak.webshop.controller;
 
 
-import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.air.nowak.webshop.Cart;
-import pl.air.nowak.webshop.Model.Item;
-import pl.air.nowak.webshop.Repository.MovieRepository;
+
 import pl.air.nowak.webshop.service.Cartservice;
 
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class HomeController {
@@ -47,5 +44,8 @@ public class HomeController {
         model.addAttribute("items", cartservice.getAllItems());
         return "home";
     }
+
+
+
 
 }

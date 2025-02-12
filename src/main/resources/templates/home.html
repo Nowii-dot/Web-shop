@@ -1,20 +1,49 @@
 
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
-    <title>featuremovieshop</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>Movie Master</title>
+    <link rel="stylesheet" type="text/css" href="/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/src/main/resources/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /><!-- Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Twój plik home.js -->
+    <script src="/JavaScript/home.js"></script>
+
+
     <script src="https://kit.fontawesome.com/c2e4aa9ea1.js" crossorigin="anonymous"></script>
-</head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 <body>
-<header class="bar" th:fragment="home">
-    <nav class="logo"><a href="http://localhost:8080">featuremovieshop</a></nav>
+<header class="bar transparent"  th:fragment="home">
+    <nav class="logo"><img class="logo-img" src="/img/Logo.png" href="http://localhost:8080" /></nav>
     <nav class="menu">
         <ul>
-            <li class="navItem"><a href=http://localhost:8080/ranking/movies"">TOP 20</a></li>
-            <li class="navItem"><a href="#">NEW</a></li>
-            <li class="navItem"><a href="#">Log In</a></li>
+            <li class="navItem"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>TOP 20</a></li>
+            <li class="navItem"><a href="http://localhost:8080/ranking/movies"><i class="fa fa-star-o" aria-hidden="true"></i>RANKING</a></li>
+            <li class="navItem" sec:authorize="hasRole('ADMIN')"><a href="http://localhost:8080/admin">Admin</a></li>
+            <li class="navItem" sec:authorize="hasRole('USER')"><a href="http://localhost:8080/user">User Panel</a></li>
+            <li class="navItem">
+                <a sec:authorize="isAuthenticated()"><i class="fa fa-user" aria-hidden="true"></i><span sec:authentication="name"></span></a>
+            </li>
+            <li class="navItem user-menu">
+                <a class="user-link">
+                    <i class="fa fa-user"></i>
+                    <a sec:authorize="isAuthenticated()"><i class="fa fa-user" aria-hidden="true"></i><span sec:authentication="name"></span></a>
+                </a>
+                <ul class="dropdown">
+                    <li><a href="/req/login">  Log In</a></li>
+                    <li><a href="/req/signup"> register</a></li>
+                    <li><a sec:authorize="isAuthenticated()" href="/reset-password">🔑 reset password</a></li>
+                    <li><a sec:authorize="isAuthenticated()" href="/logout" th:href="@{/logout}">🚪 Log out</a></li>
+                </ul>
+            </li>
             <li class="navItem"><a th:href="@{/order/cart}">
                 <span><i class="fa-solid fa-cart-shopping"></i></span>
                 <span>(</span>
@@ -24,10 +53,50 @@
                 <span>€</span>
                 <span></span>
             </a></li>
+
         </ul>
     </nav>
 </header>
+
 <main class="container">
+
+    <section class="slider-container">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <!-- Każdy film jako slajd -->
+                <div class="swiper-slide">
+                    <img src="https://images.cdn.prd.api.discomax.com/2024/08/28/05db6ed7-e00e-360f-bc41-e72f8291b389.jpeg?w=2800&f=webp" alt="Film 1">
+                    <div class="slide-text">Garfield</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/ea29cbf5-e48b-44d6-8441-5c0bc40beb5d/compose?format=webp&label=hero_carousel_none_300&width=2880" alt="Film 2">
+                    <div class="slide-text">The Simpsons</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/b17f5b77-1096-467b-b297-0f0840aa03c8/compose?format=webp&label=hero_carousel_none_300&width=2880" alt="Film 3">
+                    <div class="slide-text">Alien Romulus</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://images.cdn.prd.api.discomax.com/2024/11/26/af1896fc-9a7a-32fa-8a48-f446d501f6b7.jpeg?w=2800&f=webp" alt="Film 4">
+                    <div class="slide-text">Joker: Folie à Deux</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://m.media-amazon.com/images/S/pv-target-images/836f4c11f08619557644eb50fd8f38f3f1b1bf348a5a8b4f00aba9865520da2c.jpg" alt="Film 5">
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="swiper-navigation">
+            <!-- Przyciski nawigacji -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
+        </div>
+        <!-- Paginations -->
+        <div class="swiper-pagination"></div>
+    </section>
 
     <section id="product" class="product">
         <div class="product-item" th:each="item : ${items}">
@@ -43,6 +112,30 @@
         </div>
     </section>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 1, // Pokazuje kawałek następnego slajdu
+            spaceBetween: 20,
+            centeredSlides: true,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false
+            }
+        });
+    });
 
+
+</script>
 </body>
 </html>

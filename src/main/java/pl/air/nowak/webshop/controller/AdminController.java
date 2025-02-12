@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.air.nowak.webshop.Model.Item;
 import pl.air.nowak.webshop.Repository.MovieRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,7 +36,19 @@ public class AdminController {
         model.addAttribute("item", movieRepository.getAll());
         return "adminview/addItem";
     }
+    @PostMapping("/admin/save")
+    public String saveMovie(@RequestParam String name,
+                            @RequestParam BigDecimal price,
+                            @RequestParam String imgUrl) {
+        Item newItem = new Item();
+        newItem.setName(name);
+        newItem.setPrice(price);
+        newItem.setImgUrl(imgUrl);
 
+        movieRepository.save(newItem);  // Zapisanie filmu w bazie danych
+
+        return "redirect:/admin";  // Po zapisaniu przekierowanie na stronę admina
+    }
 
     @PostMapping("/save")
     public String add(Item item) {
@@ -52,8 +65,6 @@ public class AdminController {
         }
         return "redirect:/";
     }
-
-
 
     @GetMapping("/edit/{idmovies2}")
     private String EditItem(@PathVariable("idmovies2") int idmovies2, Model model) {

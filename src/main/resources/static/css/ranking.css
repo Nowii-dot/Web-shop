@@ -34,10 +34,14 @@ header{
     background-color: black;
 }
 .logo{
-    width: 10%;
+    width: 500px;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.logo-img{
+    width: 30px;
 }
 .menu{
     width: 90%;
