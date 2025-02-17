@@ -29,12 +29,8 @@
             <li class="navItem"><a href="http://localhost:8080/ranking/movies"><i class="fa fa-star-o" aria-hidden="true"></i>RANKING</a></li>
             <li class="navItem" sec:authorize="hasRole('ADMIN')"><a href="http://localhost:8080/admin">Admin</a></li>
             <li class="navItem" sec:authorize="hasRole('USER')"><a href="http://localhost:8080/user">User Panel</a></li>
-            <li class="navItem">
-                <a sec:authorize="isAuthenticated()"><i class="fa fa-user" aria-hidden="true"></i><span sec:authentication="name"></span></a>
-            </li>
             <li class="navItem user-menu">
                 <a class="user-link">
-                    <i class="fa fa-user"></i>
                     <a sec:authorize="isAuthenticated()"><i class="fa fa-user" aria-hidden="true"></i><span sec:authentication="name"></span></a>
                 </a>
                 <ul class="dropdown">
