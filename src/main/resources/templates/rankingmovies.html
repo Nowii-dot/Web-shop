@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>featuremovieshop</title>
+    <link rel="stylesheet" type="text/css" href="/css/ranking.css">
+    <link rel="stylesheet" type="text/css" href="/src/main/resources/static/css/ranking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<header th:replace="~{/topbar/headerAdmin :: ShopHeaderAdmin}">
+</header>
+<body>
+<div class="main-content">
+    <div class="tabele">
+        <table>
+            <caption>Top 20 Movies of All Time</caption>
+            <thead>
+            <tr>
+                <th>Best movies in the world</th>
+            </tr>
+            </thead>
+            <tbody class="summary" th:each="item, stat : ${items}">
+            <tr>
+                <td><img class="summary-img" th:src="@{${item.imgUrl}}" alt="Movie poster"></td>
+
+                <td class="product-text">
+                    <span th:text="${stat.index + 1 + '.'}"></span>
+                    <span th:text="${item.name}"></span>
+                </td>
+                <td> <a class="fa fa-star checked"></a> <a th:text="${item.rating}" ></a></td>
+            </tr>
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+</body>
+</html>

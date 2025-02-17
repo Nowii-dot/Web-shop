@@ -1,6 +1,7 @@
 ﻿# MOVIE SHOP 
 
-![alt text](src/main/resources/static/img/aplikacja.png)
+![alt text](src/main/resources/static/img/main.png)
+![alt text](src/main/resources/static/img/login.png)
 
 ## Functionalities of Movie Shop App
 * login
@@ -11,12 +12,10 @@
 ### Addictionally admin has a few more functionalities:
 * add movie
 * deleting a movie
-* add mobie to cart shop
 
 #### Tools which I used to build server side of this app
 * java OPP
 * spring data jpa
-* spring security
 * Lombok
 * hibernate
 * Mysql

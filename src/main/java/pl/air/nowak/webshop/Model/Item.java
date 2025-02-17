@@ -1,9 +1,6 @@
 package pl.air.nowak.webshop.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -21,7 +18,10 @@ public class Item {
 
     private  String name;
     private BigDecimal price;
+    @Column(name = "imgUrl")
     private String imgUrl;
+    @Column(name = "rating")
+    private String rating;
 }
 
 /*

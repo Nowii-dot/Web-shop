@@ -1,0 +1,122 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    margin: 0%;
+
+}
+body{
+   <-- background: rgb(236, 230, 230);
+    font-size: 16px;
+    color: #fff;
+    background-image: url("/img/login-bk.jpg");
+
+}
+section {
+    padding: 25px 0;
+}
+.container{
+    width: 100%;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.text-center{
+    color: #000;
+}
+.form-label {
+    color: #000;
+}
+header{
+    height: 50px;
+    display: flex;
+    background-color: black;
+}
+.logo{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo-img{
+    width: 30px;
+}
+.menu{
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.navItem {
+    display: inline-block;
+    list-style: none;
+    text-transform: uppercase;
+    margin: 0 25px;
+
+}
+.navItem > a {
+    padding: 20px;
+    width: 150px;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+.main-content{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 10px;
+    background-color: ;
+    margin: auto;
+    height: 500px;
+    color: #000;
+    flex-wrap: wrap;
+}
+
+.tabele{width:1000px; margin: 50px; font-family: 'Poppins', sans-serif;}
+.tabele table{width:100%;border-collapse:collapse;}
+.tabele caption{font-size:1.4em;padding:20px;}
+.tabele thead tr{background: #000;color:#fff;}
+.tabele tbody tr{background: #eee;}
+.tabele tr:nth-child(even){background: rgb(220, 222, 223);}
+.tabele tbody tr:hover{background: rgb(220, 222, 223);}
+.tabele td{padding:8px 4px;}
+
+
+.summary{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 1000px;
+   
+}
+.summary a{
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+.summary-img{
+    width: 100px;
+    height: 150px;
+    text-align: center;
+}
+.fa{
+    color: #ffc200 !important;
+    font-size: 30px !important ;
+    padding: 7px;
+}
+form {
+
+    display: flex;
+    flex-direction: column;
+    
+}
+.product-text{
+    align-items: start !important;
+}
+form label{
+    width: 100%;
+}

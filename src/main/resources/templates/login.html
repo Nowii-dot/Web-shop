@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <script src="/js/signup.js" defer></script>
+</head>
+<body>
+<header class="bar">
+    <a class="bar-button" href="http://localhost:8080"><- back</a>
+</header>
+<section>
+    <form action="/req/login" method="post">
+        <h1>Login</h1>
+
+        <!-- Komunikaty błędów i sukcesów -->
+        <div class="dialog-row">
+            <!-- Wyświetlanie błędu logowania -->
+            <label th:if="${param.error}" class="text-center redText">
+                <ion-icon name="warning-outline" style="color: red;"></ion-icon>
+                <span th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span>
+            </label>
+
+            <!-- Wyświetlanie informacji o wylogowaniu -->
+            <label th:if="${param.logout}" class="text-center greenText">
+                <ion-icon name="checkmark-outline" style="color: green;"></ion-icon>
+                You have been logged out successfully.
+            </label>
+        </div>
+
+        <div class="inputbox">
+            <ion-icon name="person-outline"></ion-icon>
+            <input name="username" id="username" type="text" required>
+            <label for="username">Username</label>
+        </div>
+
+        <div class="inputbox">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input name="password" type="password" id="password" required>
+            <label for="password">Password</label>
+        </div>
+
+        <div class="register">
+            <p><a href="#">Forget Password?</a></p>
+        </div>
+
+        <button class="login-button">Log in</button>
+
+        <div class="register">
+            <p>Don't have an account? <a href="/req/signup">Register!</a></p>
+        </div>
+    </form>
+</section>
+</body>
+</html>

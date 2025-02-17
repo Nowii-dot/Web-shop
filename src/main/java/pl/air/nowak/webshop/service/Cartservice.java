@@ -2,12 +2,11 @@ package pl.air.nowak.webshop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import pl.air.nowak.webshop.Cart;
 import pl.air.nowak.webshop.Model.Item;
+import pl.air.nowak.webshop.Model.MyAppUser;
 import pl.air.nowak.webshop.Repository.MovieRepository;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +15,9 @@ import java.util.Optional;
 public class Cartservice {
     private final MovieRepository movieRepository;
     private final Cart cart;
+
+
+
     @Autowired
     public Cartservice(MovieRepository movieRepository, Cart cart) {
         this.movieRepository = movieRepository;
@@ -25,6 +27,7 @@ public class Cartservice {
     public List<Item> getAllItems() {
         return movieRepository.getAll();
     }
+    public List<Item> getTopTenItems() {return movieRepository.getTopTenMovies();}
 
     public void addItemToCart(int idmovies2){
 
